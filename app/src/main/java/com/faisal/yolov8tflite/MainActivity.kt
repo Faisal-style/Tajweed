@@ -14,6 +14,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.faisal.yolov8tflite.Constants.LABELS_PATH
 import com.faisal.yolov8tflite.Constants.MODEL_PATH
+import com.faisal.yolov8tflite.databinding.ActivityIdghomMisliBinding
 import com.faisal.yolov8tflite.databinding.ActivityMainBinding
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors

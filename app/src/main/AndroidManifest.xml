@@ -24,10 +24,10 @@
             android:name="com.faisal.yolov8tflite.IkhfakSyafawi"
             android:exported="false" />
         <activity
-            android:name="com.faisal.yolov8tflite.IqlabDetail"
+            android:name="com.faisal.yolov8tflite.MainActivity"
             android:exported="false" />
         <activity
-            android:name="com.faisal.yolov8tflite.MainActivity"
+            android:name="com.faisal.yolov8tflite.IqlabDetail"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
