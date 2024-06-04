@@ -6,15 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".IkhfakSyafawi">
 
-    <TextView
-        android:id="@+id/ikhfak_syafawi"
+    <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="HUKUM BACAAN IKHFA SYAFAWI"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backgroundikhfasyafawi" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/pengertianikhfa_syafawi"
+        android:layout_width="300dp"
+        android:layout_height="296dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="108dp"
+        android:src="@drawable/pengertianikhfasyafawi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/caramembacaikhfasyafawi"
+        android:layout_width="395dp"
+        android:layout_height="346dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="256dp"
+        android:src="@drawable/caramembacaikfasyafawi"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

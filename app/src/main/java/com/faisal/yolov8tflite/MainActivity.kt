@@ -1,11 +1,17 @@
 package com.faisal.yolov8tflite
 
 import android.Manifest
+import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Matrix
+import android.hardware.camera2.CameraManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.WindowManager
+import android.widget.ImageButton
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
@@ -22,6 +28,10 @@ import java.util.concurrent.Executors
 class MainActivity : AppCompatActivity(), Detector.DetectorListener {
     private lateinit var binding: ActivityMainBinding
     private val isFrontCamera = false
+    //flash
+    private lateinit var flashBtn:ImageButton
+    private lateinit var cameraM: CameraManager
+    var isFlash = false
 
     private var preview: Preview? = null
     private var imageAnalyzer: ImageAnalysis? = null
@@ -29,14 +39,23 @@ class MainActivity : AppCompatActivity(), Detector.DetectorListener {
     private var cameraProvider: ProcessCameraProvider? = null
     private var detector: Detector? = null
 
-    private var currentZoom = 2f
+    private var currentZoom = 3f
 
     private lateinit var cameraExecutor: ExecutorService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            )
+        }
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        flashBtn = binding.flashButton
+        cameraM = getSystemService(Context.CAMERA_SERVICE) as CameraManager
+        flashBtn.setOnClickListener{flashLightOnOff(it)}
 
         cameraExecutor = Executors.newSingleThreadExecutor()
 
@@ -52,6 +71,18 @@ class MainActivity : AppCompatActivity(), Detector.DetectorListener {
         }
 
         bindListeners()
+    }
+
+    private fun flashLightOnOff(v: View?) {
+        if (!isFlash) {
+            camera?.cameraControl?.enableTorch(true)
+            isFlash = true
+            flashBtn.setImageResource(R.drawable.flash_on)
+        } else {
+            camera?.cameraControl?.enableTorch(false)
+            isFlash = false
+            flashBtn.setImageResource(R.drawable.baseline_flash_off_24)
+        }
     }
 
     private fun bindListeners() {

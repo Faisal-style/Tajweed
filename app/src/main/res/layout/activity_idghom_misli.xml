@@ -6,16 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".IdghomMisli">
 
-    <TextView
-        android:id="@+id/ikhfa"
+    <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="HUKUM BACAAN IDGHOM MISLI"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backgroundidghommimi" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/pengertianmimi"
+        android:layout_width="300dp"
+        android:layout_height="296dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="108dp"
+        android:src="@drawable/definisiidghommimi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/caramembacamimi"
+        android:layout_width="395dp"
+        android:layout_height="346dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="272dp"
+        android:src="@drawable/carabacaidghommimi"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

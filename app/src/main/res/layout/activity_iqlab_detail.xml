@@ -6,15 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".IqlabDetail">
 
-    <TextView
-        android:id="@+id/iqlab"
+
+    <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="HUKUM BACAAN IQLAB"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backgrounddetail" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/pengertianiqlab"
+        android:layout_width="300dp"
+        android:layout_height="296dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="144dp"
+        android:src="@drawable/pengertianiqlab3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/caramembacaiqlab"
+        android:layout_width="395dp"
+        android:layout_height="346dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="304dp"
+        android:src="@drawable/caramembacaiqlab2"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

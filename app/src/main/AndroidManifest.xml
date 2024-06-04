@@ -11,23 +11,26 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/newlogo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.YOLOv8TfLite"
         tools:targetApi="31">
         <activity
-            android:name="com.faisal.yolov8tflite.IdghomMisli"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name="com.faisal.yolov8tflite.IkhfakSyafawi"
+            android:name=".IkhfakSyafawi"
             android:exported="false" />
         <activity
-            android:name="com.faisal.yolov8tflite.IqlabDetail"
+            android:name=".IqlabDetail"
             android:exported="false" />
         <activity
-            android:name="com.faisal.yolov8tflite.MainActivity"
+            android:name=".IdghomMisli"
+            android:exported="false" />
+        <activity
+            android:name=".Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

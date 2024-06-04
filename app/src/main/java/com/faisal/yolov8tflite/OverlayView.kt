@@ -48,9 +48,18 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
         textPaint.style = Paint.Style.FILL
         textPaint.textSize = 50f
 
-        boxPaint.color = ContextCompat.getColor(context!!, R.color.bounding_box_color)
+//        boxPaint.color = ContextCompat.getColor(context!!, R.color.bounding_box_color)
         boxPaint.strokeWidth = 8F
         boxPaint.style = Paint.Style.STROKE
+    }
+
+    private fun getBoxColor(clsName: String): Int {
+        return when (clsName) {
+            "iqlab" -> Color.RED
+            "ikhfa syafawi" -> Color.BLUE
+            "idghom mimi" -> Color.GREEN
+            else -> Color.YELLOW
+        }
     }
 
     override fun draw(canvas: Canvas) {
@@ -62,8 +71,9 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
             val right = bbox.x2 * width
             val bottom = bbox.y2 * height
 
+            boxPaint.color = getBoxColor(bbox.clsName)
             canvas.drawRect(left, top, right, bottom, boxPaint)
-            val drawableText = "${bbox.clsName} ${bbox.cnf}%)"
+            val drawableText = "${bbox.clsName} ${String.format("%.2f", bbox.cnf)}"
 
             textBackgroundPaint.getTextBounds(drawableText, 0, drawableText.length, bounds)
             val textWidth = bounds.width()
@@ -110,7 +120,7 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
                             val intent = Intent(context, IkhfakSyafawi::class.java)
                             context.startActivity(intent)
                         }
-                        "idghom misli" -> {
+                        "idghom mimi" -> {
                             val intent = Intent(context, IdghomMisli::class.java)
                             context.startActivity(intent)
                         }
