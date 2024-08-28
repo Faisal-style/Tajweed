@@ -87,8 +87,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_flash_off_24" />
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/ivTop"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"/>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

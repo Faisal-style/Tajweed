@@ -126,7 +126,7 @@ class OverlayView(context: Context?, attrs: AttributeSet?) : View(context, attrs
                         }
                     }
                     // Kirim imagePath ke activity lain
-
+//                    (context as MainActivity).captureAndCropImage(bbox)
                 }
                 selectedBoundingBox = null
                 invalidate()

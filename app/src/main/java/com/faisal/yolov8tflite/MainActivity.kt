@@ -22,6 +22,9 @@ import com.faisal.yolov8tflite.Constants.LABELS_PATH
 import com.faisal.yolov8tflite.Constants.MODEL_PATH
 import com.faisal.yolov8tflite.databinding.ActivityIdghomMisliBinding
 import com.faisal.yolov8tflite.databinding.ActivityMainBinding
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -84,6 +87,57 @@ class MainActivity : AppCompatActivity(), Detector.DetectorListener {
             flashBtn.setImageResource(R.drawable.baseline_flash_off_24)
         }
     }
+
+//    fun captureAndCropImage(boundingBox: BoundingBox) {
+//        imageAnalyzer?.setAnalyzer(cameraExecutor) { imageProxy ->
+//            val bitmapBuffer = Bitmap.createBitmap(
+//                imageProxy.width,
+//                imageProxy.height,
+//                Bitmap.Config.ARGB_8888
+//            )
+//            imageProxy.use { bitmapBuffer.copyPixelsFromBuffer(imageProxy.planes[0].buffer) }
+//            imageProxy.close()
+//
+//            val matrix = Matrix().apply {
+//                postRotate(imageProxy.imageInfo.rotationDegrees.toFloat())
+//                if (isFrontCamera) {
+//                    postScale(-1f, 1f, imageProxy.width.toFloat(), imageProxy.height.toFloat())
+//                }
+//            }
+//
+//            val rotatedBitmap = Bitmap.createBitmap(
+//                bitmapBuffer, 0, 0, bitmapBuffer.width, bitmapBuffer.height,
+//                matrix, true
+//            )
+//
+//            // Crop the image based on the bounding box
+//            val croppedBitmap = Bitmap.createBitmap(
+//                rotatedBitmap,
+//                (boundingBox.x1 * rotatedBitmap.width).toInt(),
+//                (boundingBox.y1 * rotatedBitmap.height).toInt(),
+//                ((boundingBox.x2 - boundingBox.x1) * rotatedBitmap.width).toInt(),
+//                ((boundingBox.y2 - boundingBox.y1) * rotatedBitmap.height).toInt()
+//            )
+//
+//            // Save or use the cropped bitmap as needed
+//            saveCroppedImage(croppedBitmap)
+//        }
+//    }
+//
+//    private fun saveCroppedImage(bitmap: Bitmap) {
+//        val filename = "cropped_image_${System.currentTimeMillis()}.png"
+//        val file = File(getExternalFilesDir(null), filename)
+//
+//        try {
+//            FileOutputStream(file).use { out ->
+//                bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)
+//            }
+//            Log.d(TAG, "Cropped image saved: ${file.absolutePath}")
+//        } catch (e: IOException) {
+//            Log.e(TAG, "Error saving cropped image", e)
+//        }
+//    }
+
 
     private fun bindListeners() {
         binding.apply {
@@ -203,6 +257,8 @@ class MainActivity : AppCompatActivity(), Detector.DetectorListener {
         } else {
             requestPermissionLauncher.launch(REQUIRED_PERMISSIONS)
         }
+        isFlash = false
+        flashBtn.setImageResource(R.drawable.baseline_flash_off_24)
         camera?.cameraControl?.setZoomRatio(currentZoom)
     }
 
@@ -210,6 +266,7 @@ class MainActivity : AppCompatActivity(), Detector.DetectorListener {
         super.onPause()
         camera?.cameraInfo?.zoomState?.value?.zoomRatio?.let { currentZoom = it }
     }
+
 
     companion object {
         private const val TAG = "Camera"

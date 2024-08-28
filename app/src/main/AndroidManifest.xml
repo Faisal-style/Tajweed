@@ -18,16 +18,16 @@
         android:theme="@style/Theme.YOLOv8TfLite"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".IkhfakSyafawi"
-            android:exported="false" />
-        <activity
             android:name=".IqlabDetail"
             android:exported="false" />
         <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".IdghomMisli"
+            android:exported="false" />
+        <activity
+            android:name=".IkhfakSyafawi"
             android:exported="false" />
         <activity
             android:name=".Splash"
