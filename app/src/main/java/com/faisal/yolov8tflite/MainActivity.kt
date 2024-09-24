@@ -248,6 +248,8 @@ class MainActivity : AppCompatActivity(), Detector.DetectorListener {
         super.onDestroy()
         detector?.close()
         cameraExecutor.shutdown()
+
+
     }
 
     override fun onResume() {
@@ -257,8 +259,6 @@ class MainActivity : AppCompatActivity(), Detector.DetectorListener {
         } else {
             requestPermissionLauncher.launch(REQUIRED_PERMISSIONS)
         }
-        isFlash = false
-        flashBtn.setImageResource(R.drawable.baseline_flash_off_24)
         camera?.cameraControl?.setZoomRatio(currentZoom)
     }
 

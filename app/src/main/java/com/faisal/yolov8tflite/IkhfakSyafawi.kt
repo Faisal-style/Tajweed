@@ -38,7 +38,7 @@ class IkhfakSyafawi : AppCompatActivity() {
 
         try {
             // Load the audio file from the assets folder
-            val assetFileDescriptor = assets.openFd("ikhfasyafawi.mp3")
+            val assetFileDescriptor = assets.openFd("ikfasyafawi.mp3")
             mediaPlayer?.apply {
                 setDataSource(
                     assetFileDescriptor.fileDescriptor,
